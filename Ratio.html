@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>百分比计算</title>
+</head>
+<body>
+<P>百分比计算</P>
+<input type="radio" name="size" value="1920" checked="checked" id="1920"/>1920
+<input type="radio" name="size" value="1080" />1080
+<input type="text" id="num_input" onkeydown="if(event.keyCode==13){btn.click()}"/>
+<button type="button" onclick="press()" id="btn">确定</button>
+<p id="result">结果</p>
+<script>
+    function press() {
+        var num = document.getElementById("num_input").value;
+        if (isNaN(num)){
+            document.getElementById("result").innerHTML="输入有误";
+        }else {
+            var ischecked = document.getElementById("1920").checked;
+            document.getElementById("result").innerHTML = ischecked ? String(100 * num / 1920) + "%" : String(100 * num / 1080) + "%";
+        }
+    }
+</script>
+
+</body>
+</html>
